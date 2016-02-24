@@ -42,6 +42,10 @@ var scenes;
             this._spinButton = new objects.Button("SpinButton", 450, 365, false);
             this.addChild(this._spinButton);
             this._spinButton.on("click", this._spinButtonClick, this);
+            // Setup Background
+            this._setupBackground("WhiteBackground");
+            // FadeIn
+            this._fadeIn(500);
             // add this scene to the global stage container
             stage.addChild(this);
         };
@@ -112,6 +116,6 @@ var scenes;
             console.log(this._reels());
         };
         return SlotMachine;
-    })(objects.Scene);
+    }(objects.Scene));
     scenes.SlotMachine = SlotMachine;
 })(scenes || (scenes = {}));
