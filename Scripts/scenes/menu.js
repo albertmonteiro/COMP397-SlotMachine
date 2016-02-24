@@ -19,7 +19,7 @@ var scenes;
             this._welcomeLabel = new objects.Label("SLOT MACHINE", "60px Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y);
             this.addChild(this._welcomeLabel);
             // add the START button to the MENU scene
-            this._startButton = new objects.Button("StartButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 80);
+            this._startButton = new objects.Button("StartButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 80, true);
             this.addChild(this._startButton);
             // START Button event listener
             this._startButton.on("click", this._startButtonClick, this);
@@ -40,4 +40,3 @@ var scenes;
     })(objects.Scene);
     scenes.Menu = Menu;
 })(scenes || (scenes = {}));
-//# sourceMappingURL=menu.js.map
