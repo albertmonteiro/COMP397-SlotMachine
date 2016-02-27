@@ -32,7 +32,6 @@ var objects;
             event.currentTarget.alpha = 1.0;
         };
         return Button;
-    })(createjs.Bitmap);
+    }(createjs.Bitmap));
     objects.Button = Button;
 })(objects || (objects = {}));
-//# sourceMappingURL=button.js.map
