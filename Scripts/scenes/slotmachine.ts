@@ -287,9 +287,11 @@ module scenes {
             if (playerBet <= this._playerMoney)
             {
                  this._playerBet += playerBet;
-                 this._playerMoney -= this._playerBet;
+                 this._playerMoney -= playerBet;
                  this._creditText.text = this._playerMoney.toString();
                  this._betText.text = this._playerBet.toString();
+                 console.log("Credit: " + this._playerMoney);
+                 console.log("Bet: " + this._playerBet);
             }
         }
         
