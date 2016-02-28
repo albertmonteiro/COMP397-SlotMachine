@@ -73,9 +73,9 @@ module scenes {
             this.addChild(this._spinButton);
             this._spinButton.on("click", this._spinButtonClick, this); 
             
-            // Add Jackpot label
+            // Add Jackpot Text
             this._jackpotText = new objects.Label(
-                "0",
+                this._jackpot.toString(),
                 "14px Consolas",
                 "#ff0000", 
                 426, 100, false);
@@ -83,9 +83,9 @@ module scenes {
             this.addChild(this._jackpotText);
             console.log("Jackpot: "+this._jackpot);
             
-            // Add Credit label
+            // Add Credit Text
             this._creditText = new objects.Label(
-                "0",
+                this._playerMoney.toString(),
                 "14px Consolas",
                 "#ff0000", 
                 255, 324, false);
@@ -93,9 +93,9 @@ module scenes {
             this.addChild(this._creditText);
             console.log("Credit: "+this._playerMoney);
             
-            // Add Bet label
+            // Add Bet Text
             this._betText = new objects.Label(
-                "0",
+                this._playerBet.toString(),
                 "14px Consolas",
                 "#ff0000", 
                 371, 324, false);
@@ -103,9 +103,9 @@ module scenes {
             this.addChild(this._betText);
             console.log("Bet: "+this._playerBet);
             
-            // Add Result label
+            // Add Result Text
             this._resultText = new objects.Label(
-                "0",
+                this._winnings.toString(),
                 "14px Consolas",
                 "#ff0000", 
                 487, 324, false);

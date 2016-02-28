@@ -24,14 +24,14 @@ var assetData = [
     { id: "SpinButton", src: "../../Assets/images/SpinButton.png" },
     { id: "BlackBackground", src: "../../Assets/images/BlackBackground.png" },
     { id: "WhiteBackground", src: "../../Assets/images/WhiteBackground.png" },
-    { id: "Blank", src: "../../Assets/images/Blank.png" },
-    { id: "Grape", src: "../../Assets/images/Grape.png" },
+    { id: "Apple", src: "../../Assets/images/Apple.png" },
     { id: "Banana", src: "../../Assets/images/Banana.png" },
-    { id: "Orange", src: "../../Assets/images/Orange.png" },
+    { id: "Bar", src: "../../Assets/images/Bar.png" },
+    { id: "Blank", src: "../../Assets/images/Blank.png" },
     { id: "Cherry", src: "../../Assets/images/Cherry.png" },
-    { id: "Melon", src: "../../Assets/images/Melon.png" },
+    { id: "Grape", src: "../../Assets/images/Grape.png" },
     { id: "Lemon", src: "../../Assets/images/Lemon.png" },
-    { id: "Apple", src: "../../Assets/images/Apple.png" }
+    { id: "Melon", src: "../../Assets/images/Melon.png" }
 ];
 function preload() {
     assets = new createjs.LoadQueue();

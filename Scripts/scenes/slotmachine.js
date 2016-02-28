@@ -52,23 +52,23 @@ var scenes;
             this._spinButton = new objects.Button("SpinButton", 450, 365, false);
             this.addChild(this._spinButton);
             this._spinButton.on("click", this._spinButtonClick, this);
-            // Add Jackpot label
-            this._jackpotText = new objects.Label("0", "14px Consolas", "#ff0000", 426, 100, false);
+            // Add Jackpot Text
+            this._jackpotText = new objects.Label(this._jackpot.toString(), "14px Consolas", "#ff0000", 426, 100, false);
             this._jackpotText.textAlign = "right";
             this.addChild(this._jackpotText);
             console.log("Jackpot: " + this._jackpot);
-            // Add Credit label
-            this._creditText = new objects.Label("0", "14px Consolas", "#ff0000", 255, 324, false);
+            // Add Credit Text
+            this._creditText = new objects.Label(this._playerMoney.toString(), "14px Consolas", "#ff0000", 255, 324, false);
             this._creditText.textAlign = "right";
             this.addChild(this._creditText);
             console.log("Credit: " + this._playerMoney);
-            // Add Bet label
-            this._betText = new objects.Label("0", "14px Consolas", "#ff0000", 371, 324, false);
+            // Add Bet Text
+            this._betText = new objects.Label(this._playerBet.toString(), "14px Consolas", "#ff0000", 371, 324, false);
             this._betText.textAlign = "right";
             this.addChild(this._betText);
             console.log("Bet: " + this._playerBet);
-            // Add Result label
-            this._resultText = new objects.Label("0", "14px Consolas", "#ff0000", 487, 324, false);
+            // Add Result Text
+            this._resultText = new objects.Label(this._winnings.toString(), "14px Consolas", "#ff0000", 487, 324, false);
             this._resultText.textAlign = "right";
             this.addChild(this._resultText);
             console.log("Result: " + this._winnings);
