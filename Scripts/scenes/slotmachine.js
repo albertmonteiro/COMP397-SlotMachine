@@ -137,6 +137,7 @@ var scenes;
                         break;
                 }
             }
+            console.log(betLine);
             return betLine;
         };
         /* This function calculates the player's winnings, if any */
@@ -193,6 +194,7 @@ var scenes;
                 console.log("Win!");
             }
             else {
+                this._winnings = 0;
                 console.log("Loss!");
             }
             this._resultText.text = this._winnings.toString();
@@ -204,7 +206,7 @@ var scenes;
             this._apple = 0;
             this._banana = 0;
             this._bar = 0;
-            this._cherry = 0;
+            this._blank = 0;
             this._cherry = 0;
             this._grape = 0;
             this._lemon = 0;
@@ -217,7 +219,6 @@ var scenes;
                 this._reels[reel].x = 134 + (reel * 132);
                 this._reels[reel].y = 130;
                 this.addChild(this._reels[reel]);
-                console.log("reels" + reel + " " + this._reels);
             }
         };
         SlotMachine.prototype._placeBet = function (playerBet) {

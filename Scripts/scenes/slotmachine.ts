@@ -188,6 +188,7 @@ module scenes {
                         break;
                 }
             }
+            console.log(betLine);
             return betLine;
         }
         
@@ -245,6 +246,7 @@ module scenes {
                 console.log("Win!");
             }
             else {
+                this._winnings = 0;
                 console.log("Loss!");
             }
 
@@ -252,14 +254,13 @@ module scenes {
             this._playerMoney += this._winnings;
             this._creditText.text = this._playerMoney.toString();
             this._resetFruitTally();
-
         }
 
         private _resetFruitTally(): void {
             this._apple = 0;
             this._banana = 0;
             this._bar = 0;
-            this._cherry = 0;
+            this._blank = 0;
             this._cherry = 0;
             this._grape = 0;
             this._lemon = 0;
@@ -277,7 +278,7 @@ module scenes {
                 this._reels[reel].x = 134 + (reel * 132);
                 this._reels[reel].y = 130;
                 this.addChild(this._reels[reel]);
-                console.log("reels"+reel+" " +this._reels);
+                // console.log("reel"+reel+" " +this._reels);
             }
         }
         
