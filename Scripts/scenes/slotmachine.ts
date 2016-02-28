@@ -3,6 +3,8 @@ module scenes {
     export class SlotMachine extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
         private _backgroundImage: createjs.Bitmap;
+        private _resetButton: objects.Button;
+        private _powerButton: objects.Button;
         private _bet1Button: objects.Button;
         private _bet10Button: objects.Button;
         private _bet100Button: objects.Button;
@@ -40,6 +42,16 @@ module scenes {
             // add background image to the scene
             this._backgroundImage = new createjs.Bitmap(assets.getResult("SlotMachine"));
             this.addChild(this._backgroundImage);
+            
+            // add the RESET button to the MENU scene
+            this._resetButton = new objects.Button("ResetButton", 68, 190, false);
+            this.addChild(this._resetButton);
+            this._resetButton.on("click", this._resetButtonClick, this); 
+            
+            // add the START button to the MENU scene
+            this._powerButton = new objects.Button("PowerButton", 510, 190, false);
+            this.addChild(this._powerButton);
+            this._powerButton.on("click", this._powerButtonClick, this); 
             
             // add Bet1Button to the scene
             this._bet1Button = new objects.Button("Bet1Button", 100, 365, false);
@@ -315,6 +327,28 @@ module scenes {
                 this._betText.text = this._playerBet.toString();
             }
           
+        }
+        
+        // RESET Button click event handler
+        private _resetButtonClick(event: createjs.MouseEvent) {
+            console.log("Reset!");
+            //FadeOut 
+            this._fadeOut(500, () => {
+                // Switch to the SlotMachine Scene
+                scene = config.Scene.SLOT_MACHINE;
+                changeScene();
+            });
+        }
+        
+        // POWER Button click event handler
+        private _powerButtonClick(event: createjs.MouseEvent) {
+            console.log("Goodbye!");
+            //FadeOut 
+            this._fadeOut(500, () => {
+                // Switch to the GameOver Scene
+                scene = config.Scene.GAME_OVER;
+                changeScene();
+            });
         }
     }
 }
