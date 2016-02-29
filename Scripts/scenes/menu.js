@@ -15,6 +15,11 @@ var scenes;
         // PUBLIC METHODS +++++++++++++++++++++
         // Start Method
         Menu.prototype.start = function () {
+            // Start playing Background Audio 
+            var audioFile = document.createElement("audio");
+            audioFile.src = "../../Assets/audio/jazz.mp3";
+            audioFile.loop = true;
+            audioFile.play();
             // add the WELCOME Label to the MENU scene
             this._welcomeLabel = new objects.Label("SLOT MACHINE", "60px Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
             this.addChild(this._welcomeLabel);
@@ -36,6 +41,10 @@ var scenes;
         //EVENT HANDLERS ++++++++++++++++++++
         // START Button click event handler
         Menu.prototype._startButtonClick = function (event) {
+            // Play CLICK sound
+            var audioFile = document.createElement("audio");
+            audioFile.src = "../../Assets/audio/click.mp3";
+            audioFile.play();
             //FadeOut 
             this._fadeOut(500, function () {
                 // Switch to the SLOT MACHINE Scene

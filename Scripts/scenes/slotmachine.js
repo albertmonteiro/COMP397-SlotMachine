@@ -56,22 +56,18 @@ var scenes;
             this._jackpotText = new objects.Label(this._jackpot.toString(), "14px Consolas", "#ff0000", 426, 100, false);
             this._jackpotText.textAlign = "right";
             this.addChild(this._jackpotText);
-            console.log("Jackpot: " + this._jackpot);
             // Add Credit Text
             this._creditText = new objects.Label(this._playerMoney.toString(), "14px Consolas", "#ff0000", 255, 324, false);
             this._creditText.textAlign = "right";
             this.addChild(this._creditText);
-            console.log("Credit: " + this._playerMoney);
             // Add Bet Text
             this._betText = new objects.Label(this._playerBet.toString(), "14px Consolas", "#ff0000", 371, 324, false);
             this._betText.textAlign = "right";
             this.addChild(this._betText);
-            console.log("Bet: " + this._playerBet);
             // Add Result Text
             this._resultText = new objects.Label(this._winnings.toString(), "14px Consolas", "#ff0000", 487, 324, false);
             this._resultText.textAlign = "right";
             this.addChild(this._resultText);
-            console.log("Result: " + this._winnings);
             // Initialize array of bitmaps
             this._initializeBitmapArray();
             // Setup Background
@@ -84,11 +80,16 @@ var scenes;
         // SLOT_MACHINE Scene updates here
         SlotMachine.prototype.update = function () {
         };
-        //PRIVATE METHODS
+        // PRIVATE METHODS
         /* Utility function to check if a value falls within a range of bounds */
         SlotMachine.prototype._checkRange = function (value, lowerBounds, upperBounds) {
             return (value >= lowerBounds && value <= upperBounds) ? value : -1;
         };
+        // Sleep method
+        // private _sleep(seconds) {
+        //     var e = new Date().getTime() + (seconds * 1000);
+        //     while (new Date().getTime() <= e) { }
+        // }
         SlotMachine.prototype._resetAll = function () {
             this._jackpot = 5000;
             this._playerMoney = 1000;
@@ -191,11 +192,17 @@ var scenes;
                 else {
                     this._winnings = this._playerBet * 1;
                 }
-                console.log("Win!");
+                // Play WIN sound
+                var audioFile = document.createElement("audio");
+                audioFile.src = "../../Assets/audio/win.mp3";
+                audioFile.play();
             }
             else {
                 this._winnings = 0;
-                console.log("Loss!");
+                // Play LOSS sound
+                var audioFile = document.createElement("audio");
+                audioFile.src = "../../Assets/audio/loss.mp3";
+                audioFile.play();
             }
             this._resultText.text = this._winnings.toString();
             this._playerMoney += this._winnings;
@@ -227,24 +234,35 @@ var scenes;
                 this._playerMoney -= playerBet;
                 this._creditText.text = this._playerMoney.toString();
                 this._betText.text = this._playerBet.toString();
-                console.log("Credit: " + this._playerMoney);
-                console.log("Bet: " + this._playerBet);
             }
         };
         //EVENT HANDLERS ++++++++++++++++++++
         SlotMachine.prototype._bet1ButtonClick = function (event) {
-            console.log("Bet 1 Credit");
+            // Play CLICK sound
+            var audioFile = document.createElement("audio");
+            audioFile.src = "../../Assets/audio/click.mp3";
+            audioFile.play();
             this._placeBet(1);
         };
         SlotMachine.prototype._bet10ButtonClick = function (event) {
-            console.log("Bet 10 Credit");
+            // Play CLICK sound
+            var audioFile = document.createElement("audio");
+            audioFile.src = "../../Assets/audio/click.mp3";
+            audioFile.play();
             this._placeBet(10);
         };
         SlotMachine.prototype._bet100ButtonClick = function (event) {
-            console.log("Bet 100 Credit");
+            // Play CLICK sound
+            var audioFile = document.createElement("audio");
+            audioFile.src = "../../Assets/audio/click.mp3";
+            audioFile.play();
             this._placeBet(100);
         };
         SlotMachine.prototype._spinButtonClick = function (event) {
+            // Play CLICK sound
+            var audioFile = document.createElement("audio");
+            audioFile.src = "../../Assets/audio/click.mp3";
+            audioFile.play();
             // checks if player has bet an amount
             if (this._playerBet > 0) {
                 var bitmap = this._spinReels();
@@ -259,7 +277,10 @@ var scenes;
         };
         // RESET Button click event handler
         SlotMachine.prototype._resetButtonClick = function (event) {
-            console.log("Reset!");
+            // Play CLICK sound
+            var audioFile = document.createElement("audio");
+            audioFile.src = "../../Assets/audio/click.mp3";
+            audioFile.play();
             //FadeOut 
             this._fadeOut(500, function () {
                 // Switch to the SlotMachine Scene
@@ -269,7 +290,10 @@ var scenes;
         };
         // POWER Button click event handler
         SlotMachine.prototype._powerButtonClick = function (event) {
-            console.log("Goodbye!");
+            // Play CLICK sound
+            var audioFile = document.createElement("audio");
+            audioFile.src = "../../Assets/audio/click.mp3";
+            audioFile.play();
             //FadeOut 
             this._fadeOut(500, function () {
                 // Switch to the GameOver Scene

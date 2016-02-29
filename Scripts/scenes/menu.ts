@@ -15,6 +15,12 @@ module scenes {
         // Start Method
         public start(): void {
             
+            // Start playing Background Audio 
+            var audioFile = document.createElement("audio");
+            audioFile.src = "../../Assets/audio/jazz.mp3";
+            audioFile.loop = true;
+            audioFile.play();
+            
             // add the WELCOME Label to the MENU scene
             this._welcomeLabel = new objects.Label(
                 "SLOT MACHINE",
@@ -54,6 +60,11 @@ module scenes {
         
         // START Button click event handler
         private _startButtonClick(event: createjs.MouseEvent) {
+            // Play CLICK sound
+            var audioFile = document.createElement("audio");
+            audioFile.src = "../../Assets/audio/click.mp3";
+            audioFile.play();
+            
             //FadeOut 
             this._fadeOut(500, () => {
                 // Switch to the SLOT MACHINE Scene

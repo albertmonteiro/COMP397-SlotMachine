@@ -16,7 +16,7 @@ var scenes;
         // Start Method
         GameOver.prototype.start = function () {
             // add the WELCOME Label to the MENU scene
-            this._gameOverLabel = new objects.Label("GAME OVER", "60px Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
+            this._gameOverLabel = new objects.Label("GRACIAS!", "60px Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
             this.addChild(this._gameOverLabel);
             // add the START OVER button to the MENU scene
             this._startOverButton = new objects.Button("StartOverButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 80, true);
@@ -32,6 +32,10 @@ var scenes;
         //EVENT HANDLERS ++++++++++++++++++++
         // START Button click event handler
         GameOver.prototype._startOverButtonClick = function (event) {
+            // Play CLICK sound
+            var audioFile = document.createElement("audio");
+            audioFile.src = "../../Assets/audio/click.mp3";
+            audioFile.play();
             // Switch to the LEFT_CAVE Scene
             scene = config.Scene.SLOT_MACHINE;
             changeScene();

@@ -81,7 +81,6 @@ module scenes {
                 426, 100, false);
             this._jackpotText.textAlign = "right";
             this.addChild(this._jackpotText);
-            console.log("Jackpot: "+this._jackpot);
             
             // Add Credit Text
             this._creditText = new objects.Label(
@@ -91,7 +90,6 @@ module scenes {
                 255, 324, false);
             this._creditText.textAlign = "right";
             this.addChild(this._creditText);
-            console.log("Credit: "+this._playerMoney);
             
             // Add Bet Text
             this._betText = new objects.Label(
@@ -101,7 +99,6 @@ module scenes {
                 371, 324, false);
             this._betText.textAlign = "right";
             this.addChild(this._betText);
-            console.log("Bet: "+this._playerBet);
             
             // Add Result Text
             this._resultText = new objects.Label(
@@ -111,7 +108,6 @@ module scenes {
                 487, 324, false);
             this._resultText.textAlign = "right";
             this.addChild(this._resultText);
-            console.log("Result: "+this._winnings);
             
             // Initialize array of bitmaps
             this._initializeBitmapArray();
@@ -131,12 +127,18 @@ module scenes {
 
         }
         
-        //PRIVATE METHODS
+        // PRIVATE METHODS
         /* Utility function to check if a value falls within a range of bounds */
         private _checkRange(value: number, lowerBounds: number, upperBounds: number): number {
             return (value >= lowerBounds && value <= upperBounds) ? value : -1;
         }
         
+        // Sleep method
+        // private _sleep(seconds) {
+        //     var e = new Date().getTime() + (seconds * 1000);
+        //     while (new Date().getTime() <= e) { }
+        // }
+
         private _resetAll()
         {
             this._jackpot = 5000;
@@ -188,6 +190,7 @@ module scenes {
                         break;
                 }
             }
+
             console.log(betLine);
             return betLine;
         }
@@ -243,11 +246,19 @@ module scenes {
                 else {
                     this._winnings = this._playerBet * 1;
                 }
-                console.log("Win!");
+                
+                // Play WIN sound
+                var audioFile = document.createElement("audio");
+                audioFile.src = "../../Assets/audio/win.mp3";
+                audioFile.play();
             }
             else {
                 this._winnings = 0;
-                console.log("Loss!");
+                
+                // Play LOSS sound
+                var audioFile = document.createElement("audio");
+                audioFile.src = "../../Assets/audio/loss.mp3";
+                audioFile.play();
             }
 
             this._resultText.text = this._winnings.toString();
@@ -270,7 +281,6 @@ module scenes {
         
         private _initializeBitmapArray():void
         {
-            
             this._reels = new Array<createjs.Bitmap>();
             for (var reel:number = 0; reel < 3; reel++)
             {
@@ -278,7 +288,6 @@ module scenes {
                 this._reels[reel].x = 134 + (reel * 132);
                 this._reels[reel].y = 130;
                 this.addChild(this._reels[reel]);
-                // console.log("reel"+reel+" " +this._reels);
             }
         }
         
@@ -290,51 +299,64 @@ module scenes {
                  this._playerMoney -= playerBet;
                  this._creditText.text = this._playerMoney.toString();
                  this._betText.text = this._playerBet.toString();
-                 console.log("Credit: " + this._playerMoney);
-                 console.log("Bet: " + this._playerBet);
             }
         }
         
         
         //EVENT HANDLERS ++++++++++++++++++++
         private _bet1ButtonClick(event: createjs.MouseEvent): void {
-            console.log("Bet 1 Credit");
+            // Play CLICK sound
+            var audioFile = document.createElement("audio");
+            audioFile.src = "../../Assets/audio/click.mp3";
+            audioFile.play();
             this._placeBet(1);
         }
 
         private _bet10ButtonClick(event: createjs.MouseEvent): void {
-            console.log("Bet 10 Credit");
+            // Play CLICK sound
+            var audioFile = document.createElement("audio");
+            audioFile.src = "../../Assets/audio/click.mp3";
+            audioFile.play();
             this._placeBet(10);
         }
 
         private _bet100ButtonClick(event: createjs.MouseEvent): void {
-            console.log("Bet 100 Credit");
+            // Play CLICK sound
+            var audioFile = document.createElement("audio");
+            audioFile.src = "../../Assets/audio/click.mp3";
+            audioFile.play();
             this._placeBet(100);
         }
 
         private _spinButtonClick(event: createjs.MouseEvent): void {
+            // Play CLICK sound
+            var audioFile = document.createElement("audio");
+            audioFile.src = "../../Assets/audio/click.mp3";
+            audioFile.play();
+            
             // checks if player has bet an amount
-            if (this._playerBet > 0) 
-            {
+            if (this._playerBet > 0) {
                 var bitmap: string[] = this._spinReels();
-
-                for (var reel: number = 0; reel < 3; reel++) 
-                {
+                for (var reel: number = 0; reel < 3; reel++) {
                     this._reels[reel].image = assets.getResult(bitmap[reel]);
                 }
-                
+
                 this._determineWinnings();
                 
                 // Resets player bet to 0
                 this._playerBet = 0;
                 this._betText.text = this._playerBet.toString();
             }
-          
+
         }
         
         // RESET Button click event handler
         private _resetButtonClick(event: createjs.MouseEvent) {
-            console.log("Reset!");
+            // Play CLICK sound
+            var audioFile = document.createElement("audio");
+            audioFile.src = "../../Assets/audio/click.mp3";
+            audioFile.play();
+            
             //FadeOut 
             this._fadeOut(500, () => {
                 // Switch to the SlotMachine Scene
@@ -345,7 +367,11 @@ module scenes {
         
         // POWER Button click event handler
         private _powerButtonClick(event: createjs.MouseEvent) {
-            console.log("Goodbye!");
+            // Play CLICK sound
+            var audioFile = document.createElement("audio");
+            audioFile.src = "../../Assets/audio/click.mp3";
+            audioFile.play();
+            
             //FadeOut 
             this._fadeOut(500, () => {
                 // Switch to the GameOver Scene

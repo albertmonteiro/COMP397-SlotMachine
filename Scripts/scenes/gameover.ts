@@ -17,7 +17,7 @@ module scenes {
             
             // add the WELCOME Label to the MENU scene
             this._gameOverLabel = new objects.Label(
-                "GAME OVER", 
+                "GRACIAS!", 
                 "60px Consolas", 
                 "#000000", 
                 config.Screen.CENTER_X, 
@@ -34,7 +34,6 @@ module scenes {
             // START Button event listener
             this._startOverButton.on("click", this._startOverButtonClick, this);
            
-            
             // add this scene to the global stage container
             stage.addChild(this);
         }
@@ -44,11 +43,15 @@ module scenes {
 
         }
         
-        
         //EVENT HANDLERS ++++++++++++++++++++
         
         // START Button click event handler
         private _startOverButtonClick(event: createjs.MouseEvent) {
+            // Play CLICK sound
+            var audioFile = document.createElement("audio");
+            audioFile.src = "../../Assets/audio/click.mp3";
+            audioFile.play();
+            
             // Switch to the LEFT_CAVE Scene
             scene = config.Scene.SLOT_MACHINE;
             changeScene();
