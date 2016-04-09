@@ -11,6 +11,7 @@ var menu;
 var slotMachine;
 var gameOver;
 var assetData = [
+    { id: "MenuBackground", src: "../../Assets/images/MenuBackground.png" },
     { id: "BackButton", src: "../../Assets/images/BackButton.png" },
     { id: "Nextbutton", src: "../../Assets/images/Nextbutton.png" },
     { id: "StartButton", src: "../../Assets/images/StartButton.png" },
@@ -105,3 +106,4 @@ function changeScene() {
     console.log(currentScene.numChildren);
 }
 window.onload = preload;
+//# sourceMappingURL=game.js.map

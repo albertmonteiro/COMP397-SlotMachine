@@ -15,14 +15,17 @@ var scenes;
         // PUBLIC METHODS +++++++++++++++++++++
         // Start Method
         Menu.prototype.start = function () {
-            // Start playing Background Audio 
-            var audioFile = document.createElement("audio");
-            audioFile.src = "../../Assets/audio/jazz.mp3";
-            audioFile.loop = true;
-            audioFile.play();
+            // add background image to the scene
+            this._menuBackground = new createjs.Bitmap(assets.getResult("MenuBackground"));
+            this.addChild(this._menuBackground);
             // add the WELCOME Label to the MENU scene
-            this._welcomeLabel = new objects.Label("SLOT MACHINE", "60px Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
-            this.addChild(this._welcomeLabel);
+            // this._welcomeLabel = new objects.Label(
+            //     "SLOT MACHINE",
+            //     "60px Consolas",
+            //     "#000000",
+            //     config.Screen.CENTER_X,
+            //     config.Screen.CENTER_Y, true);
+            // this.addChild(this._welcomeLabel);
             // add the START button to the MENU scene
             this._startButton = new objects.Button("StartButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 80, true);
             this.addChild(this._startButton);
@@ -41,6 +44,11 @@ var scenes;
         //EVENT HANDLERS ++++++++++++++++++++
         // START Button click event handler
         Menu.prototype._startButtonClick = function (event) {
+            // Start playing Background Audio 
+            var audioFile = document.createElement("audio");
+            audioFile.src = "../../Assets/audio/jazz.mp3";
+            audioFile.loop = true;
+            audioFile.play();
             // Play CLICK sound
             var audioFile = document.createElement("audio");
             audioFile.src = "../../Assets/audio/click.mp3";
@@ -56,3 +64,4 @@ var scenes;
     }(objects.Scene));
     scenes.Menu = Menu;
 })(scenes || (scenes = {}));
+//# sourceMappingURL=menu.js.map

@@ -15,9 +15,17 @@ var scenes;
         // PUBLIC METHODS +++++++++++++++++++++
         // Start Method
         GameOver.prototype.start = function () {
+            // add background image to the scene
+            this._menuBackground = new createjs.Bitmap(assets.getResult("MenuBackground"));
+            this.addChild(this._menuBackground);
             // add the WELCOME Label to the MENU scene
-            this._gameOverLabel = new objects.Label("GRACIAS!", "60px Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
-            this.addChild(this._gameOverLabel);
+            // this._gameOverLabel = new objects.Label(
+            //     "GRACIAS!", 
+            //     "60px Consolas", 
+            //     "#000000", 
+            //     config.Screen.CENTER_X, 
+            //     config.Screen.CENTER_Y, true);
+            // this.addChild(this._gameOverLabel);      
             // add the START OVER button to the MENU scene
             this._startOverButton = new objects.Button("StartOverButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 80, true);
             this.addChild(this._startOverButton);
@@ -44,3 +52,4 @@ var scenes;
     }(objects.Scene));
     scenes.GameOver = GameOver;
 })(scenes || (scenes = {}));
+//# sourceMappingURL=gameover.js.map

@@ -4,6 +4,7 @@ module scenes {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
         private _startButton: objects.Button;
         private _welcomeLabel: objects.Label;
+        private _menuBackground: createjs.Bitmap;
         
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
@@ -15,20 +16,18 @@ module scenes {
         // Start Method
         public start(): void {
             
-            // Start playing Background Audio 
-            var audioFile = document.createElement("audio");
-            audioFile.src = "../../Assets/audio/jazz.mp3";
-            audioFile.loop = true;
-            audioFile.play();
+            // add background image to the scene
+            this._menuBackground = new createjs.Bitmap(assets.getResult("MenuBackground"));
+            this.addChild(this._menuBackground);
             
             // add the WELCOME Label to the MENU scene
-            this._welcomeLabel = new objects.Label(
-                "SLOT MACHINE",
-                "60px Consolas",
-                "#000000",
-                config.Screen.CENTER_X,
-                config.Screen.CENTER_Y, true);
-            this.addChild(this._welcomeLabel);
+            // this._welcomeLabel = new objects.Label(
+            //     "SLOT MACHINE",
+            //     "60px Consolas",
+            //     "#000000",
+            //     config.Screen.CENTER_X,
+            //     config.Screen.CENTER_Y, true);
+            // this.addChild(this._welcomeLabel);
                    
             // add the START button to the MENU scene
             this._startButton = new objects.Button(
@@ -60,6 +59,12 @@ module scenes {
         
         // START Button click event handler
         private _startButtonClick(event: createjs.MouseEvent) {
+            // Start playing Background Audio 
+            var audioFile = document.createElement("audio");
+            audioFile.src = "../../Assets/audio/jazz.mp3";
+            audioFile.loop = true;
+            audioFile.play();
+            
             // Play CLICK sound
             var audioFile = document.createElement("audio");
             audioFile.src = "../../Assets/audio/click.mp3";

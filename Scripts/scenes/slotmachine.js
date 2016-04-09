@@ -305,3 +305,4 @@ var scenes;
     }(objects.Scene));
     scenes.SlotMachine = SlotMachine;
 })(scenes || (scenes = {}));
+//# sourceMappingURL=slotmachine.js.map
