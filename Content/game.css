@@ -1,5 +1,6 @@
 ﻿body {
-    background-color: darkgray;
+    /*background-color: darkgray;*/
+    background-image: url("../../Assets/images/masterBackground.jpg");
 }
 
 canvas {
